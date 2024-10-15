@@ -12,6 +12,7 @@ let customers = [
 ]
 
 function removeCustomer(id) {
-    //TODO
+    if(customers.findIndex(c => c.id === id) === -1) return false;
+    return customers.filter(c => c.id !== id);
 }
 module.exports = removeCustomer;

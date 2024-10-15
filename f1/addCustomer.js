@@ -12,14 +12,16 @@ let customers = [
 ]
 
 function isAddress(address) {
-    //TODO
+    return typeof(address.city) === "string" && typeof(address.street) === "string" && typeof(address.house) === "number";
 }
 
 function isCustomer(name, age, address, newsLetter) {
-    //TODO
+    if(!isAddress(address)) return false;
+    return typeof(name) === "string" && typeof(age) === "number" && typeof(newsLetter) === "boolean";
 }
 
 function addCustomer(name, age, address, newsLetter) {
-    //TODO
+    if (!isCustomer(name, age, address, newsLetter)) return false;
+    return [...customers, {id: 11, name, age, address, newsLetter}];
 }
 module.exports = addCustomer;
